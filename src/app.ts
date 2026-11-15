@@ -7,6 +7,7 @@ import { testController } from "./modules/user/user.controller";
 import { responseMiddleware } from "./common/middleware/response.middleware";
 import { errorMiddleware } from "./common/middleware/error.middleware";
 import { AppException } from "./common/exceptions/app.exception";
+import authRoutes from "./modules/auth/auth.routes";
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(express.json());
 
 // Routes
 //app.get("/", testController);
+app.use("/auth", authRoutes);
 
 export default app;
 app.use(responseMiddleware);
